@@ -1,0 +1,18 @@
+{
+  "name": "movies-api",
+  "version": "1.0.0",
+  "description": "API simples para gerenciar filmes com paginação e ordenação",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["movies", "api", "express", "nodejs"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
+}
