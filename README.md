@@ -1,6 +1,22 @@
 # Movies API
 
-AP## Autenticação
+API REST para gerenciar filmes com paginação e ordenação. Inclui documentação interativa com Swagger e autenticação JWT.
+
+## Instalação
+
+```bash
+npm install
+```
+
+## Como executar
+
+```bash
+npm start
+```
+
+A API estará disponível em `http://localhost:3000`
+
+## Autenticação
 
 A API utiliza autenticação JWT (JSON Web Token). Para acessar os endpoints protegidos, você deve primeiro fazer login e incluir o token nas requisições.
 
@@ -76,40 +92,7 @@ Autentica o usuário e retorna um token JWT. **Este é o único endpoint públic
 }
 ```
 
-### GET /movies 🔒
-
-Lista filmes com suporte a paginação, ordenação e filtros. **Requer autenticação.** gerenciar filmes com paginação e ordenação. Inclui documentação interativa com Swagger.
-
-## Instalação
-
-```bash
-npm install
-```
-
-## Como executar
-
-```bash
-npm start
-```
-
-A API estará disponível em `http://localhost:3000`
-
-## Documentação
-
-A documentação interativa da API está disponível em:
-- **Swagger UI**: `http://localhost:3000/api-docs`
-
-A interface Swagger permite:
-- Visualizar todos os endpoints disponíveis
-- Testar os endpoints diretamente no navegador
-- Ver exemplos de requisições e respostas
-- Validar parâmetros de entrada
-
-## Endpoints
-
-### GET /movies
-
-Lista filmes com suporte a paginação, ordenação e filtros.
+Lista filmes com suporte a paginação, ordenação e filtros. **Requer autenticação.**
 
 #### Parâmetros de Query:
 
