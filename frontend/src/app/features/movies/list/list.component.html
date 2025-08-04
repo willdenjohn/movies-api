@@ -1,0 +1,45 @@
+<div class="movies-list-container">
+  <h2>Filmes</h2>
+
+  <ng-container *ngIf="filters$ | async as filters">
+    <label>
+      Gênero:
+      <select #genreSelect (change)="updateState({ genero: genreSelect.value, page: 1 })">
+        <option value="">Todos</option>
+        <option *ngFor="let g of filters.availableGenres" [value]="g">{{ g }}</option>
+      </select>
+    </label>
+    <label>
+      Ordenar por:
+      <select #sortSelect (change)="updateState({ sortBy: sortSelect.value })">
+        <option *ngFor="let field of filters.availableSortFields" [value]="field">{{ field }}</option>
+      </select>
+    </label>
+    <label>
+      Ordem:
+      <select #orderSelect (change)="updateState({ order: orderSelect.value })">
+        <option value="">Selecione</option>
+        <option *ngFor="let ord of filters.sortOrders" [value]="ord">{{ ord }}</option>
+      </select>
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="movies$ | async as movies">
+    <ul>
+      <li *ngFor="let movie of movies.data">
+        <strong>{{ movie.nome }}</strong> ({{ movie.anoLancamento }}) - {{ movie.genero }}
+        <button (click)="setFavorite(movie)">
+          {{ isFavorite(movie) ? 'Desfavoritar' : 'Favoritar' }}
+        </button>
+        <p>{{ movie.descricao }}</p>
+      </li>
+    </ul>
+    <div class="pagination">
+      <button (click)="updateState({ page: movies.pagination.currentPage - 1 })"
+              [disabled]="!movies.pagination.hasPrevPage">Anterior</button>
+      <span>Página {{ movies.pagination.currentPage }}</span>
+      <button (click)="updateState({ page: movies.pagination.currentPage + 1 })"
+              [disabled]="!movies.pagination.hasNextPage">Próxima</button>
+    </div>
+  </ng-container>
+</div>

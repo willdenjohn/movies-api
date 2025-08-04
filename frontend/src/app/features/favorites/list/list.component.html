@@ -1,0 +1,18 @@
+<div class="favorites-list-container">
+  <h2>Filmes Favoritos</h2>
+  <ul>
+    <li *ngFor="let movie of paginated">
+      <strong>{{ movie.nome }}</strong> ({{ movie.anoLancamento }}) - {{ movie.genero }}
+      <button (click)="removeFavorite(movie.id)">Remover</button>
+      <p>{{ movie.descricao }}</p>
+    </li>
+  </ul>
+  <div *ngIf="paginated.length === 0">
+    Nenhum filme favoritado nesta página.
+  </div>
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="page <= 1">Anterior</button>
+    <span>Página {{ page }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="page >= totalPages">Próxima</button>
+  </div>
+</div>

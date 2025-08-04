@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
 const movies = require('./data/movies');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +16,10 @@ const AUTH_PASSWORD = 'teste';
 
 // Middleware para parsing JSON
 app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:4200', // permite apenas seu frontend
+  credentials: true // se precisar enviar cookies/autenticação
+}));
 
 // Configuração do Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
