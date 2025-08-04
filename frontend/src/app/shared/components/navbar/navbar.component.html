@@ -1,0 +1,13 @@
+<nav>
+  <ng-container *ngIf="visibleRoutes$ | async as visibleRoutes">
+    <ng-container *ngFor="let route of visibleRoutes; let last = last">
+      <a
+        [routerLink]="route.path"
+        (click)="route.label === 'Sair' ? logout() : null"
+      >
+        {{ route.label }}
+      </a>
+      <span *ngIf="!last">|</span>
+    </ng-container>
+  </ng-container>
+</nav>

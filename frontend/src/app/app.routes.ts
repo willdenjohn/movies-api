@@ -8,5 +8,6 @@ export const routes: Routes = [
   { path: '', redirectTo: 'movies', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'movies', component: MoviesListComponent, canActivate: [AuthGuard] },
-  { path: 'favorites', component: FavoritesListComponent, canActivate: [AuthGuard] }
+  { path: 'favorites', component: FavoritesListComponent, canActivate: [AuthGuard] },
+  { path: 'logout', component: LoginComponent, canActivate: [AuthGuard] }
 ];
